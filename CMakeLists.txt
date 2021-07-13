@@ -187,3 +187,10 @@ endif()
 if(AFR_METADATA_MODE)
     afr_write_metadata()
 endif()
+
+# -------------------------------------------------------------------------------------------------
+# CMSIS targets
+# -------------------------------------------------------------------------------------------------
+if(CMSIS_GENERATE_PACK)
+  include(${CMAKE_CURRENT_LIST_DIR}/cmsis-targets.cmake)
+endif()

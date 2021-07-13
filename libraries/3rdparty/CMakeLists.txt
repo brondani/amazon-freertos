@@ -143,7 +143,7 @@ if(EXISTS "${AFR_3RDPARTY_DIR}/mbedtls")
         afr_3rdparty_mbedtls PUBLIC
         "${AFR_3RDPARTY_DIR}/mbedtls/include"
         "${AFR_3RDPARTY_DIR}/mbedtls_config"
-        "${AFR_3RDPARTY_DIR}/mbedtls/include/mbedtls"
+#        "${AFR_3RDPARTY_DIR}/mbedtls/include/mbedtls"
         "${AFR_3RDPARTY_DIR}/mbedtls_utils"
     )
     target_link_libraries(

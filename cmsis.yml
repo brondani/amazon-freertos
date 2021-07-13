@@ -1,0 +1,188 @@
+### CMSIS Pack manifest file ###
+
+build:
+  - options: "cmake -G Ninja -DVENDOR=st -DBOARD=stm32l475_discovery -DCMSIS_GENERATE_PACK=ON"
+
+packs:
+  - name: "IoT_C-SDK"
+    description: "AWS IoT Device SDK for Embedded C"
+    vendor: "AWS"
+    license: "LICENSE"
+    url: "https://github.com/aws/aws-iot-device-sdk-embedded-C/"
+    output: "generated/IoT_C-SDK"
+    releases:
+      - version: "202103.0.0-Alpha"
+        date: "2021-07-12"
+        changelog: "Initial release"
+    taxonomy:
+      - attributes: {Cclass: "AWS IoT", Cgroup: "Features"}
+        description: "AWS IoT Device SDK for Embedded C Features"
+
+    components:
+      - name: afr_3rdparty_mbedtls
+        target: afr_3rdparty_mbedtls
+        attributes: {Cclass: "AWS IoT", Cgroup: "Features", Csub: "mbedTLS Utils", Cversion: "1.0.0"}
+        description: "mbed TLS Utils"
+        dependencies: [mbedtls_lib, afr_kernel]
+        files:
+          - name: libraries/3rdparty/mbedtls_config/aws_mbedtls_config.h
+            attributes: {category: header, attr: config, version: "1.0.0"}
+        conditions:
+          - require: {Cclass: "Security", Cgroup: "mbed TLS"}
+
+      - name: afr_backoff_algorithm
+        target: afr_backoff_algorithm
+        attributes: {Cclass: "AWS IoT", Cgroup: "Features", Csub: "Backoff Algorithm", Cversion: "1.0.1"}
+        description: "Backoff Algorithm"
+        dependencies: [afr_kernel]
+
+      - name: afr_common_io
+        target: afr_common_io
+        attributes: {Cclass: "AWS IoT", Cgroup: "Features", Csub: "CommonIO", Cversion: "1.0.0"}
+        description: "CommonIO"
+        dependencies: [afr_kernel, stm32l475_discovery_common_io]
+
+      - name: afr_core_http
+        target: afr_core_http
+        attributes: {Cclass: "AWS IoT", Cgroup: "Features", Csub: "coreHTTP", Cversion: "2.0.1"}
+        description: "Client library for coreHTTP"
+        dependencies: [afr_3rdparty_mbedtls, mbedtls_lib, afr_crypto, afr_kernel, afr_pkcs11_utils, afr_secure_sockets, afr_wifi]
+        files:
+          - name: vendors/st/boards/stm32l475_discovery/aws_demos/config_files/core_http_config.h
+            attributes: {category: header, attr: config, version: "1.0.0"}
+
+      - name: afr_core_json
+        target: afr_core_json
+        attributes: {Cclass: "AWS IoT", Cgroup: "Features", Csub: "coreJSON", Cversion: "3.0.1"}
+        description: "Parser for ECMA-404 JSON standard"
+        dependencies: [afr_3rdparty_mbedtls, mbedtls_lib, afr_crypto, afr_kernel, afr_pkcs11_utils, afr_secure_sockets, afr_wifi]
+
+      - name: afr_core_mqtt
+        target: afr_core_mqtt
+        attributes: {Cclass: "AWS IoT", Cgroup: "Features", Csub: "coreMQTT", Cversion: "1.1.1"}
+        description: "Client library for coreMQTT"
+        dependencies: [afr_3rdparty_mbedtls, mbedtls_lib, afr_crypto, afr_kernel, afr_pkcs11_utils, afr_secure_sockets, afr_wifi]
+        files:
+          - name: vendors/st/boards/stm32l475_discovery/aws_demos/config_files/core_mqtt_config.h
+            attributes: {category: header, attr: config, version: "1.0.0"}
+
+      - name: afr_core_mqtt_agent
+        target: [afr_core_mqtt_agent, afr_mqtt_agent_interface]
+        attributes: {Cclass: "AWS IoT", Cgroup: "Features", Csub: "coreMQTT Agent", Cversion: "1.0.0"}
+        description: "Client library for coreMQTT Agent"
+        dependencies: [afr_3rdparty_mbedtls, mbedtls_lib, afr_core_mqtt, afr_crypto, afr_kernel, afr_pkcs11_utils, afr_secure_sockets, afr_wifi]
+
+      - name: afr_crypto
+        target: afr_crypto
+        attributes: {Cclass: "AWS IoT", Cgroup: "Features", Csub: "Crypto", Cversion: "1.0.0"}
+        description: "Crypto"
+        dependencies: [afr_3rdparty_mbedtls, mbedtls_lib, afr_kernel]
+
+      - name: afr_dev_mode_key_provisioning
+        target: afr_dev_mode_key_provisioning
+        attributes: {Cclass: "AWS IoT", Cgroup: "Features", Csub: "Key Provisioning", Cversion: "1.0.0"}
+        description: "Key Provisioning"
+        dependencies: [afr_3rdparty_mbedtls, mbedtls_lib, afr_crypto, afr_kernel, afr_pkcs11_utils, afr_secure_sockets, afr_wifi]
+
+      - name: afr_device_defender
+        target: afr_device_defender
+        attributes: {Cclass: "AWS IoT", Cgroup: "Features", Csub: "AWS IoT Defender", Cversion: "1.1.0"}
+        description: "Client library for Device Defender service"
+        dependencies: [afr_3rdparty_mbedtls, mbedtls_lib, afr_crypto, afr_kernel, afr_pkcs11_utils, afr_secure_sockets, afr_wifi]
+        files:
+          - name: vendors/st/boards/stm32l475_discovery/aws_demos/config_files/defender_config.h
+            attributes: {category: header, attr: config, version: "1.0.0"}
+
+      - name: afr_device_shadow
+        target: afr_device_shadow
+        attributes: {Cclass: "AWS IoT", Cgroup: "Features", Csub: "AWS IoT Shadow", Cversion: "1.1.0"}
+        description: "Client library for Device Shadow service"
+        dependencies: [afr_3rdparty_mbedtls, mbedtls_lib, afr_crypto, afr_kernel, afr_pkcs11_utils, afr_secure_sockets, afr_wifi]
+        files:
+          - name: vendors/st/boards/stm32l475_discovery/aws_demos/config_files/aws_shadow_config.h
+            attributes: {category: header, attr: config, version: "1.0.0"}
+          - name: vendors/st/boards/stm32l475_discovery/aws_demos/config_files/shadow_config.h
+            attributes: {category: header, attr: config, version: "1.0.0"}
+
+      - name: afr_jobs
+        target: afr_jobs
+        attributes: {Cclass: "AWS IoT", Cgroup: "Features", Csub: "AWS IoT Jobs", Cversion: "3.0.0"}
+        description: "Client library for Device Jobs service"
+        dependencies: [afr_kernel]
+
+      - name: afr_pkcs11_helpers
+        target: afr_pkcs11_helpers
+        attributes: {Cclass: "AWS IoT", Cgroup: "Features", Csub: "PKCS11 Helpers", Cversion: "1.0.0"}
+        description: "PKCS11 Helpers"
+        dependencies: [afr_3rdparty_mbedtls, mbedtls_lib, afr_crypto, afr_kernel, afr_pkcs11_utils, afr_secure_sockets, afr_wifi]
+
+      - name: afr_pkcs11_utils
+        target: afr_pkcs11_utils
+        attributes: {Cclass: "AWS IoT", Cgroup: "Features", Csub: "PKCS11 Utils", Cversion: "1.0.0"}
+        description: "PKCS11 Utils"
+        dependencies: [afr_kernel]
+
+      - name: afr_secure_sockets
+        target: [afr_secure_sockets, afr_transport_interface_secure_sockets]
+        attributes: {Cclass: "AWS IoT", Cgroup: "Features", Csub: "Secure Sockets", Cversion: "1.0.0"}
+        description: "Secure Sockets"
+        dependencies: [afr_3rdparty_mbedtls, mbedtls_lib, afr_crypto, afr_kernel, afr_logging, afr_pkcs11_utils, afr_wifi, stm32l475_discovery_secure_sockets]
+        files:
+          - name: vendors/st/boards/stm32l475_discovery/aws_demos/config_files/iot_config.h
+            attributes: {category: header, attr: config, version: "1.0.0"}
+          - name: vendors/st/boards/stm32l475_discovery/aws_demos/config_files/iot_secure_sockets_config.h
+            attributes: {category: header, attr: config, version: "1.0.0"}
+          - name: vendors/st/boards/stm32l475_discovery/aws_demos/config_files/core_pkcs11_config.h
+            attributes: {category: header, attr: config, version: "1.0.0"}
+          - name: vendors/st/boards/stm32l475_discovery/aws_demos/config_files/FreeRTOSIPConfig.h
+            attributes: {category: header, attr: config, version: "1.0.0"}
+
+      - name: afr_wifi
+        target: afr_wifi
+        attributes: {Cclass: "AWS IoT", Cgroup: "Features", Csub: "Wifi", Cversion: "1.0.0"}
+        description: "Wifi"
+        dependencies: [afr_kernel, stm32l475_discovery_wifi]
+        files:
+          - name: vendors/st/boards/stm32l475_discovery/aws_demos/config_files/aws_wifi_config.h
+            attributes: {category: header, attr: config, version: "1.0.0"}
+
+      - name: afr_logging
+        target: afr_logging
+        attributes: {Cclass: "AWS IoT", Cgroup: "Features", Csub: "Logging", Cversion: "1.0.0"}
+        description: "Logging"
+        dependencies: [afr_3rdparty_mbedtls, mbedtls_lib, afr_crypto, afr_kernel, afr_pkcs11_utils, afr_wifi]
+
+
+  # The section below describes a temporary pack for stm32l475_discovery extensions, i.e. components that are not yet part of other existing ST packs
+  - name: "stm32l475_discovery"
+    description: "Temporary stm32l475_discovery extension"
+    vendor: "AWS"
+    license: "LICENSE"
+    url: "https://github.com/aws/aws-iot-device-sdk-embedded-C/"
+    output: "generated/stm32l475_discovery"
+    releases:
+      - version: "1.0.0"
+        date: "2021-07-12"
+        changelog: "Initial release"
+
+    components:
+      - name: stm32l475_discovery_bsp_extensions
+        target: stm32l475_discovery_bsp_extensions
+        attributes: {Cclass: "stm32l475_discovery", Cgroup: "bsp_extensions", Cversion: "1.0.0"}
+        description: "stm32l475_discovery_bsp_extensions"
+
+      - name: stm32l475_discovery_wifi
+        target: stm32l475_discovery_wifi
+        attributes: {Cclass: "stm32l475_discovery", Cgroup: "wifi", Cversion: "1.0.0"}
+        description: "stm32l475_discovery_wifi"
+
+      - name: stm32l475_discovery_secure_sockets
+        target: stm32l475_discovery_secure_sockets
+        attributes: {Cclass: "stm32l475_discovery", Cgroup: "secure_sockets", Cversion: "1.0.0"}
+        description: "stm32l475_discovery_secure_sockets"
+
+      - name: stm32l475_discovery_common_io
+        target: stm32l475_discovery_common_io
+        attributes: {Cclass: "stm32l475_discovery", Cgroup: "common_io", Cversion: "1.0.0"}
+        description: "stm32l475_discovery_common_io"
+
