@@ -1,7 +1,7 @@
 ### CMSIS Pack manifest file ###
 
 build:
-  - options: "cmake -G Ninja -DVENDOR=st -DBOARD=stm32l475_discovery -DCMSIS_GENERATE_PACK=ON"
+  - options: "cmake -G Ninja -DVENDOR=st -DBOARD=stm32l475_discovery -DCOMPILER=arm-gcc -DCMSIS_GENERATE_PACK=ON"
 
 packs:
   - name: "IoT_C-SDK"
