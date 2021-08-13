@@ -1,7 +1,8 @@
 ### CMSIS Pack manifest file ###
 
 build:
-  - options: "cmake -G Ninja -DVENDOR=st -DBOARD=stm32l475_discovery -DCOMPILER=arm-gcc -DCMSIS_GENERATE_PACK=ON"
+  - name: build1
+    options: "cmake -G Ninja -DVENDOR=st -DBOARD=stm32l475_discovery -DCOMPILER=arm-gcc -DCMSIS_GENERATE_PACK=ON"
 
 packs:
   - name: "IoT_C-SDK"
@@ -9,11 +10,15 @@ packs:
     vendor: "AWS"
     license: "LICENSE"
     url: "https://github.com/aws/aws-iot-device-sdk-embedded-C/"
-    output: "generated/IoT_C-SDK"
+
+    requirements:
+      packages:
+        - attributes: {vendor: "ARM", name: "mbedTLS", version: "1.7.0"}
+
     releases:
       - version: "202103.0.0-Alpha"
         date: "2021-07-12"
-        changelog: "Initial release"
+        description: "Initial release"
     taxonomy:
       - attributes: {Cclass: "AWS IoT", Cgroup: "Features"}
         description: "AWS IoT Device SDK for Embedded C Features"
@@ -160,10 +165,16 @@ packs:
     license: "LICENSE"
     url: "https://github.com/aws/aws-iot-device-sdk-embedded-C/"
     output: "generated/stm32l475_discovery"
+
+    requirements:
+      packages:
+        - attributes: {vendor: "Keil", name: "STM32L4xx_DFP", version: "2.5.0"}
+        - attributes: {vendor: "Keil", name: "B-L475E-IOT01A_BSP", version: "1.0.0"}
+
     releases:
       - version: "1.0.0"
         date: "2021-07-12"
-        changelog: "Initial release"
+        description: "Initial release"
 
     components:
       - name: stm32l475_discovery_bsp_extensions

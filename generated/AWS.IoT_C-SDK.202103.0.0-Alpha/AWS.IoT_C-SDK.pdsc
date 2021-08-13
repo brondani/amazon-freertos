@@ -1,0 +1,364 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<package schemaVersion="1.7.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="PACK.xsd">
+  <name>IoT_C-SDK</name>
+
+  <description>AWS IoT Device SDK for Embedded C</description>
+
+  <vendor>AWS</vendor>
+
+  <license>LICENSE</license>
+
+  <url>https://github.com/aws/aws-iot-device-sdk-embedded-C/</url>
+
+  <requirements>
+    <packages>
+      <package name="mbedTLS" vendor="ARM" version="1.7.0"/>
+    </packages>
+  </requirements>
+
+  <releases>
+    <release date="2021-07-12" version="202103.0.0-Alpha">Initial release</release>
+  </releases>
+
+  <taxonomy>
+    <description Cclass="AWS IoT" Cgroup="Features">AWS IoT Device SDK for Embedded C Features</description>
+  </taxonomy>
+
+  <conditions>
+    <condition id="afr_3rdparty_mbedtls Condition">
+      <require Cclass="Security" Cgroup="mbed TLS"/>
+    </condition>
+    <condition id="afr_backoff_algorithm Condition"/>
+    <condition id="afr_common_io Condition">
+      <require Cclass="stm32l475_discovery" Cgroup="common_io"/>
+    </condition>
+    <condition id="afr_core_http Condition">
+      <require Cclass="AWS IoT" Cgroup="Features" Csub="mbedTLS Utils"/>
+      <require Cclass="AWS IoT" Cgroup="Features" Csub="Crypto"/>
+      <require Cclass="AWS IoT" Cgroup="Features" Csub="PKCS11 Utils"/>
+      <require Cclass="AWS IoT" Cgroup="Features" Csub="Secure Sockets"/>
+      <require Cclass="AWS IoT" Cgroup="Features" Csub="Wifi"/>
+    </condition>
+    <condition id="afr_core_json Condition">
+      <require Cclass="AWS IoT" Cgroup="Features" Csub="mbedTLS Utils"/>
+      <require Cclass="AWS IoT" Cgroup="Features" Csub="Crypto"/>
+      <require Cclass="AWS IoT" Cgroup="Features" Csub="PKCS11 Utils"/>
+      <require Cclass="AWS IoT" Cgroup="Features" Csub="Secure Sockets"/>
+      <require Cclass="AWS IoT" Cgroup="Features" Csub="Wifi"/>
+    </condition>
+    <condition id="afr_core_mqtt Condition">
+      <require Cclass="AWS IoT" Cgroup="Features" Csub="mbedTLS Utils"/>
+      <require Cclass="AWS IoT" Cgroup="Features" Csub="Crypto"/>
+      <require Cclass="AWS IoT" Cgroup="Features" Csub="PKCS11 Utils"/>
+      <require Cclass="AWS IoT" Cgroup="Features" Csub="Secure Sockets"/>
+      <require Cclass="AWS IoT" Cgroup="Features" Csub="Wifi"/>
+    </condition>
+    <condition id="afr_core_mqtt_agent Condition">
+      <require Cclass="AWS IoT" Cgroup="Features" Csub="mbedTLS Utils"/>
+      <require Cclass="AWS IoT" Cgroup="Features" Csub="coreMQTT"/>
+      <require Cclass="AWS IoT" Cgroup="Features" Csub="Crypto"/>
+      <require Cclass="AWS IoT" Cgroup="Features" Csub="PKCS11 Utils"/>
+      <require Cclass="AWS IoT" Cgroup="Features" Csub="Secure Sockets"/>
+      <require Cclass="AWS IoT" Cgroup="Features" Csub="Wifi"/>
+    </condition>
+    <condition id="afr_crypto Condition">
+      <require Cclass="AWS IoT" Cgroup="Features" Csub="mbedTLS Utils"/>
+    </condition>
+    <condition id="afr_dev_mode_key_provisioning Condition">
+      <require Cclass="AWS IoT" Cgroup="Features" Csub="mbedTLS Utils"/>
+      <require Cclass="AWS IoT" Cgroup="Features" Csub="Crypto"/>
+      <require Cclass="AWS IoT" Cgroup="Features" Csub="PKCS11 Utils"/>
+      <require Cclass="AWS IoT" Cgroup="Features" Csub="Secure Sockets"/>
+      <require Cclass="AWS IoT" Cgroup="Features" Csub="Wifi"/>
+    </condition>
+    <condition id="afr_device_defender Condition">
+      <require Cclass="AWS IoT" Cgroup="Features" Csub="mbedTLS Utils"/>
+      <require Cclass="AWS IoT" Cgroup="Features" Csub="Crypto"/>
+      <require Cclass="AWS IoT" Cgroup="Features" Csub="PKCS11 Utils"/>
+      <require Cclass="AWS IoT" Cgroup="Features" Csub="Secure Sockets"/>
+      <require Cclass="AWS IoT" Cgroup="Features" Csub="Wifi"/>
+    </condition>
+    <condition id="afr_device_shadow Condition">
+      <require Cclass="AWS IoT" Cgroup="Features" Csub="mbedTLS Utils"/>
+      <require Cclass="AWS IoT" Cgroup="Features" Csub="Crypto"/>
+      <require Cclass="AWS IoT" Cgroup="Features" Csub="PKCS11 Utils"/>
+      <require Cclass="AWS IoT" Cgroup="Features" Csub="Secure Sockets"/>
+      <require Cclass="AWS IoT" Cgroup="Features" Csub="Wifi"/>
+    </condition>
+    <condition id="afr_jobs Condition"/>
+    <condition id="afr_pkcs11_helpers Condition">
+      <require Cclass="AWS IoT" Cgroup="Features" Csub="mbedTLS Utils"/>
+      <require Cclass="AWS IoT" Cgroup="Features" Csub="Crypto"/>
+      <require Cclass="AWS IoT" Cgroup="Features" Csub="PKCS11 Utils"/>
+      <require Cclass="AWS IoT" Cgroup="Features" Csub="Secure Sockets"/>
+      <require Cclass="AWS IoT" Cgroup="Features" Csub="Wifi"/>
+    </condition>
+    <condition id="afr_pkcs11_utils Condition"/>
+    <condition id="afr_secure_sockets Condition">
+      <require Cclass="AWS IoT" Cgroup="Features" Csub="mbedTLS Utils"/>
+      <require Cclass="AWS IoT" Cgroup="Features" Csub="Crypto"/>
+      <require Cclass="AWS IoT" Cgroup="Features" Csub="Logging"/>
+      <require Cclass="AWS IoT" Cgroup="Features" Csub="PKCS11 Utils"/>
+      <require Cclass="AWS IoT" Cgroup="Features" Csub="Wifi"/>
+      <require Cclass="stm32l475_discovery" Cgroup="secure_sockets"/>
+    </condition>
+    <condition id="afr_wifi Condition">
+      <require Cclass="stm32l475_discovery" Cgroup="wifi"/>
+    </condition>
+    <condition id="afr_logging Condition">
+      <require Cclass="AWS IoT" Cgroup="Features" Csub="mbedTLS Utils"/>
+      <require Cclass="AWS IoT" Cgroup="Features" Csub="Crypto"/>
+      <require Cclass="AWS IoT" Cgroup="Features" Csub="PKCS11 Utils"/>
+      <require Cclass="AWS IoT" Cgroup="Features" Csub="Wifi"/>
+    </condition>
+  </conditions>
+
+  <components>
+    <component Cclass="AWS IoT" Cgroup="Features" Csub="mbedTLS Utils" Cversion="1.0.0" condition="afr_3rdparty_mbedtls Condition">
+      <description>mbed TLS Utils</description>
+      <files>
+        <file category="source" name="libraries/3rdparty/mbedtls_config/threading_alt.h"/>
+        <file category="source" name="libraries/3rdparty/mbedtls_utils/mbedtls_error.c"/>
+        <file category="source" name="libraries/3rdparty/mbedtls_utils/mbedtls_error.h"/>
+        <file category="source" name="libraries/3rdparty/mbedtls_utils/mbedtls_utils.c"/>
+        <file category="include" name="libraries/3rdparty/mbedtls/include/"/>
+        <file category="include" name="libraries/3rdparty/mbedtls_config/"/>
+        <file category="include" name="libraries/3rdparty/mbedtls_utils/"/>
+        <file category="include" name="libraries/3rdparty/pkcs11/"/>
+        <file attr="config" category="header" name="libraries/3rdparty/mbedtls_config/aws_mbedtls_config.h" version="1.0.0"/>
+      </files>
+      <Pre_Include_Global_h>
+#define CONFIG_MEDTLS_USE_AFR_MEMORY
+#define MBEDTLS_CONFIG_FILE &quot;aws_mbedtls_config.h&quot;</Pre_Include_Global_h>
+    </component>
+    <component Cclass="AWS IoT" Cgroup="Features" Csub="Backoff Algorithm" Cversion="1.0.1" condition="afr_backoff_algorithm Condition">
+      <description>Backoff Algorithm</description>
+      <files>
+        <file category="source" name="libraries/abstractions/backoff_algorithm/source/backoff_algorithm.c"/>
+        <file category="source" name="libraries/abstractions/backoff_algorithm/source/include/backoff_algorithm.h"/>
+        <file category="include" name="libraries/abstractions/backoff_algorithm/source/include/"/>
+      </files>
+    </component>
+    <component Cclass="AWS IoT" Cgroup="Features" Csub="CommonIO" Cversion="1.0.0" condition="afr_common_io Condition">
+      <description>CommonIO</description>
+      <files>
+        <file category="source" name="libraries/abstractions/common_io/include/iot_adc.h"/>
+        <file category="source" name="libraries/abstractions/common_io/include/iot_battery.h"/>
+        <file category="source" name="libraries/abstractions/common_io/include/iot_efuse.h"/>
+        <file category="source" name="libraries/abstractions/common_io/include/iot_flash.h"/>
+        <file category="source" name="libraries/abstractions/common_io/include/iot_gpio.h"/>
+        <file category="source" name="libraries/abstractions/common_io/include/iot_hw.h"/>
+        <file category="source" name="libraries/abstractions/common_io/include/iot_i2c.h"/>
+        <file category="source" name="libraries/abstractions/common_io/include/iot_i2s.h"/>
+        <file category="source" name="libraries/abstractions/common_io/include/iot_perfcounter.h"/>
+        <file category="source" name="libraries/abstractions/common_io/include/iot_power.h"/>
+        <file category="source" name="libraries/abstractions/common_io/include/iot_pwm.h"/>
+        <file category="source" name="libraries/abstractions/common_io/include/iot_reset.h"/>
+        <file category="source" name="libraries/abstractions/common_io/include/iot_rtc.h"/>
+        <file category="source" name="libraries/abstractions/common_io/include/iot_sdio.h"/>
+        <file category="source" name="libraries/abstractions/common_io/include/iot_spi.h"/>
+        <file category="source" name="libraries/abstractions/common_io/include/iot_timer.h"/>
+        <file category="source" name="libraries/abstractions/common_io/include/iot_tsensor.h"/>
+        <file category="source" name="libraries/abstractions/common_io/include/iot_uart.h"/>
+        <file category="source" name="libraries/abstractions/common_io/include/iot_usb_device.h"/>
+        <file category="source" name="libraries/abstractions/common_io/include/iot_usb_host.h"/>
+        <file category="source" name="libraries/abstractions/common_io/include/iot_watchdog.h"/>
+        <file category="include" name="libraries/abstractions/common_io/include/"/>
+        <file category="include" name="libraries/abstractions/platform/freertos/include/"/>
+      </files>
+    </component>
+    <component Cclass="AWS IoT" Cgroup="Features" Csub="coreHTTP" Cversion="2.0.1" condition="afr_core_http Condition">
+      <description>Client library for coreHTTP</description>
+      <files>
+        <file category="source" name="libraries/coreHTTP/source/core_http_client.c"/>
+        <file category="source" name="libraries/coreHTTP/source/dependency/3rdparty/http_parser/http_parser.c"/>
+        <file category="source" name="libraries/coreHTTP/source/dependency/3rdparty/http_parser/http_parser.h"/>
+        <file category="source" name="libraries/coreHTTP/source/include/core_http_client.h"/>
+        <file category="source" name="libraries/coreHTTP/source/include/core_http_client_private.h"/>
+        <file category="source" name="libraries/coreHTTP/source/include/core_http_config_defaults.h"/>
+        <file category="source" name="libraries/coreHTTP/source/interface/transport_interface.h"/>
+        <file category="include" name="libraries/coreHTTP/source/dependency/3rdparty/http_parser/"/>
+        <file category="include" name="libraries/coreHTTP/source/include/"/>
+        <file category="include" name="libraries/coreHTTP/source/interface/"/>
+        <file attr="config" category="header" name="vendors/st/boards/stm32l475_discovery/aws_demos/config_files/core_http_config.h" version="1.0.0"/>
+      </files>
+    </component>
+    <component Cclass="AWS IoT" Cgroup="Features" Csub="coreJSON" Cversion="3.0.1" condition="afr_core_json Condition">
+      <description>Parser for ECMA-404 JSON standard</description>
+      <files>
+        <file category="source" name="libraries/coreJSON/source/core_json.c"/>
+        <file category="source" name="libraries/coreJSON/source/include/core_json.h"/>
+        <file category="include" name="libraries/coreJSON/source/include/"/>
+      </files>
+    </component>
+    <component Cclass="AWS IoT" Cgroup="Features" Csub="coreMQTT" Cversion="1.1.1" condition="afr_core_mqtt Condition">
+      <description>Client library for coreMQTT</description>
+      <files>
+        <file category="source" name="libraries/coreMQTT/source/core_mqtt.c"/>
+        <file category="source" name="libraries/coreMQTT/source/core_mqtt_serializer.c"/>
+        <file category="source" name="libraries/coreMQTT/source/core_mqtt_state.c"/>
+        <file category="source" name="libraries/coreMQTT/source/include/core_mqtt.h"/>
+        <file category="source" name="libraries/coreMQTT/source/include/core_mqtt_config_defaults.h"/>
+        <file category="source" name="libraries/coreMQTT/source/include/core_mqtt_serializer.h"/>
+        <file category="source" name="libraries/coreMQTT/source/include/core_mqtt_state.h"/>
+        <file category="source" name="libraries/coreMQTT/source/interface/transport_interface.h"/>
+        <file category="include" name="libraries/coreMQTT/source/include/"/>
+        <file attr="config" category="header" name="vendors/st/boards/stm32l475_discovery/aws_demos/config_files/core_mqtt_config.h" version="1.0.0"/>
+      </files>
+    </component>
+    <component Cclass="AWS IoT" Cgroup="Features" Csub="coreMQTT Agent" Cversion="1.0.0" condition="afr_core_mqtt_agent Condition">
+      <description>Client library for coreMQTT Agent</description>
+      <files>
+        <file category="source" name="libraries/abstractions/mqtt_agent/freertos_agent_message.c"/>
+        <file category="source" name="libraries/abstractions/mqtt_agent/freertos_command_pool.c"/>
+        <file category="source" name="libraries/abstractions/mqtt_agent/include/freertos_agent_message.h"/>
+        <file category="source" name="libraries/abstractions/mqtt_agent/include/freertos_command_pool.h"/>
+        <file category="source" name="libraries/coreMQTT-Agent/source/core_mqtt_agent.c"/>
+        <file category="source" name="libraries/coreMQTT-Agent/source/core_mqtt_agent_command_functions.c"/>
+        <file category="source" name="libraries/coreMQTT-Agent/source/include/core_mqtt_agent.h"/>
+        <file category="source" name="libraries/coreMQTT-Agent/source/include/core_mqtt_agent_command_functions.h"/>
+        <file category="source" name="libraries/coreMQTT-Agent/source/include/core_mqtt_agent_message_interface.h"/>
+        <file category="include" name="libraries/abstractions/mqtt_agent/"/>
+        <file category="include" name="libraries/abstractions/mqtt_agent/include/"/>
+        <file category="include" name="libraries/coreMQTT-Agent/source/include/"/>
+      </files>
+    </component>
+    <component Cclass="AWS IoT" Cgroup="Features" Csub="Crypto" Cversion="1.0.0" condition="afr_crypto Condition">
+      <description>Crypto</description>
+      <files>
+        <file category="source" name="libraries/freertos_plus/standard/crypto/include/iot_crypto.h"/>
+        <file category="source" name="libraries/freertos_plus/standard/crypto/src/iot_crypto.c"/>
+        <file category="include" name="libraries/freertos_plus/standard/crypto/include/"/>
+      </files>
+    </component>
+    <component Cclass="AWS IoT" Cgroup="Features" Csub="Key Provisioning" Cversion="1.0.0" condition="afr_dev_mode_key_provisioning Condition">
+      <description>Key Provisioning</description>
+      <files>
+        <file category="source" name="demos/dev_mode_key_provisioning/include/aws_dev_mode_key_provisioning.h"/>
+        <file category="source" name="demos/dev_mode_key_provisioning/src/aws_dev_mode_key_provisioning.c"/>
+        <file category="include" name="demos/dev_mode_key_provisioning/include/"/>
+      </files>
+    </component>
+    <component Cclass="AWS IoT" Cgroup="Features" Csub="AWS IoT Defender" Cversion="1.1.0" condition="afr_device_defender Condition">
+      <description>Client library for Device Defender service</description>
+      <files>
+        <file category="source" name="libraries/device_defender_for_aws/source/defender.c"/>
+        <file category="source" name="libraries/device_defender_for_aws/source/include/defender.h"/>
+        <file category="source" name="libraries/device_defender_for_aws/source/include/defender_config_defaults.h"/>
+        <file category="include" name="libraries/device_defender_for_aws/source/include/"/>
+        <file attr="config" category="header" name="vendors/st/boards/stm32l475_discovery/aws_demos/config_files/defender_config.h" version="1.0.0"/>
+      </files>
+    </component>
+    <component Cclass="AWS IoT" Cgroup="Features" Csub="AWS IoT Shadow" Cversion="1.1.0" condition="afr_device_shadow Condition">
+      <description>Client library for Device Shadow service</description>
+      <files>
+        <file category="source" name="libraries/device_shadow_for_aws/source/include/shadow.h"/>
+        <file category="source" name="libraries/device_shadow_for_aws/source/include/shadow_config_defaults.h"/>
+        <file category="source" name="libraries/device_shadow_for_aws/source/shadow.c"/>
+        <file category="include" name="libraries/device_shadow_for_aws/source/include/"/>
+        <file attr="config" category="header" name="vendors/st/boards/stm32l475_discovery/aws_demos/config_files/aws_shadow_config.h" version="1.0.0"/>
+        <file attr="config" category="header" name="vendors/st/boards/stm32l475_discovery/aws_demos/config_files/shadow_config.h" version="1.0.0"/>
+      </files>
+    </component>
+    <component Cclass="AWS IoT" Cgroup="Features" Csub="AWS IoT Jobs" Cversion="3.0.0" condition="afr_jobs Condition">
+      <description>Client library for Device Jobs service</description>
+      <files>
+        <file category="source" name="libraries/jobs_for_aws/source/include/jobs.h"/>
+        <file category="source" name="libraries/jobs_for_aws/source/jobs.c"/>
+        <file category="include" name="libraries/jobs_for_aws/source/include/"/>
+      </files>
+    </component>
+    <component Cclass="AWS IoT" Cgroup="Features" Csub="PKCS11 Helpers" Cversion="1.0.0" condition="afr_pkcs11_helpers Condition">
+      <description>PKCS11 Helpers</description>
+      <files>
+        <file category="source" name="demos/common/pkcs11_helpers/pkcs11_helpers.c"/>
+        <file category="include" name="demos/common/pkcs11_helpers/"/>
+      </files>
+    </component>
+    <component Cclass="AWS IoT" Cgroup="Features" Csub="PKCS11 Utils" Cversion="1.0.0" condition="afr_pkcs11_utils Condition">
+      <description>PKCS11 Utils</description>
+      <files>
+        <file category="source" name="libraries/abstractions/pkcs11/corePKCS11/source/core_pki_utils.c"/>
+        <file category="source" name="libraries/abstractions/pkcs11/corePKCS11/source/include/core_pki_utils.h"/>
+        <file category="include" name="libraries/abstractions/pkcs11/corePKCS11/source/include/"/>
+      </files>
+    </component>
+    <component Cclass="AWS IoT" Cgroup="Features" Csub="Secure Sockets" Cversion="1.0.0" condition="afr_secure_sockets Condition">
+      <description>Secure Sockets</description>
+      <files>
+        <file category="source" name="libraries/3rdparty/pkcs11/pkcs11.h"/>
+        <file category="source" name="libraries/3rdparty/pkcs11/pkcs11f.h"/>
+        <file category="source" name="libraries/3rdparty/pkcs11/pkcs11t.h"/>
+        <file category="source" name="libraries/abstractions/pkcs11/corePKCS11/source/core_pkcs11.c"/>
+        <file category="source" name="libraries/abstractions/pkcs11/corePKCS11/source/include/core_pkcs11.h"/>
+        <file category="source" name="libraries/abstractions/pkcs11/corePKCS11/source/include/core_pkcs11_pal.h"/>
+        <file category="source" name="libraries/abstractions/pkcs11/corePKCS11/source/portable/mbedtls/core_pkcs11_mbedtls.c"/>
+        <file category="source" name="libraries/abstractions/platform/freertos/include/platform/iot_network_freertos.h"/>
+        <file category="source" name="libraries/abstractions/platform/freertos/include/platform/iot_platform_types_freertos.h"/>
+        <file category="source" name="libraries/abstractions/platform/freertos/iot_clock_freertos.c"/>
+        <file category="source" name="libraries/abstractions/platform/freertos/iot_metrics.c"/>
+        <file category="source" name="libraries/abstractions/platform/freertos/iot_network_freertos.c"/>
+        <file category="source" name="libraries/abstractions/platform/freertos/iot_threads_freertos.c"/>
+        <file category="source" name="libraries/abstractions/platform/include/platform/iot_clock.h"/>
+        <file category="source" name="libraries/abstractions/platform/include/platform/iot_metrics.h"/>
+        <file category="source" name="libraries/abstractions/platform/include/platform/iot_network.h"/>
+        <file category="source" name="libraries/abstractions/platform/include/platform/iot_threads.h"/>
+        <file category="source" name="libraries/abstractions/platform/include/types/iot_network_types.h"/>
+        <file category="source" name="libraries/abstractions/platform/include/types/iot_platform_types.h"/>
+        <file category="source" name="libraries/abstractions/secure_sockets/include/iot_secure_sockets.h"/>
+        <file category="source" name="libraries/abstractions/secure_sockets/include/iot_secure_sockets_config_defaults.h"/>
+        <file category="source" name="libraries/abstractions/secure_sockets/include/iot_secure_sockets_wrapper_metrics.h"/>
+        <file category="source" name="libraries/abstractions/transport/secure_sockets/transport_secure_sockets.c"/>
+        <file category="source" name="libraries/abstractions/transport/secure_sockets/transport_secure_sockets.h"/>
+        <file category="source" name="libraries/c_sdk/standard/common/include/iot_init.h"/>
+        <file category="source" name="libraries/c_sdk/standard/common/include/iot_linear_containers.h"/>
+        <file category="source" name="libraries/c_sdk/standard/common/include/iot_taskpool.h"/>
+        <file category="source" name="libraries/c_sdk/standard/common/include/private/iot_taskpool_internal.h"/>
+        <file category="source" name="libraries/c_sdk/standard/common/include/types/iot_taskpool_types.h"/>
+        <file category="source" name="libraries/c_sdk/standard/common/iot_device_metrics.c"/>
+        <file category="source" name="libraries/c_sdk/standard/common/iot_init.c"/>
+        <file category="source" name="libraries/c_sdk/standard/common/iot_static_memory_common.c"/>
+        <file category="source" name="libraries/c_sdk/standard/common/taskpool/iot_taskpool.c"/>
+        <file category="source" name="libraries/c_sdk/standard/common/taskpool/iot_taskpool_static_memory.c"/>
+        <file category="source" name="libraries/freertos_plus/standard/tls/include/iot_tls.h"/>
+        <file category="source" name="libraries/freertos_plus/standard/tls/src/iot_tls.c"/>
+        <file category="source" name="libraries/freertos_plus/standard/utils/include/iot_system_init.h"/>
+        <file category="source" name="libraries/freertos_plus/standard/utils/src/iot_system_init.c"/>
+        <file category="include" name="libraries/abstractions/transport/secure_sockets/"/>
+        <file category="include" name="libraries/coreMQTT/source/interface/"/>
+        <file category="include" name="libraries/freertos_plus/standard/tls/include/"/>
+        <file category="include" name="libraries/freertos_plus/standard/utils/include/"/>
+        <file attr="config" category="header" name="vendors/st/boards/stm32l475_discovery/aws_demos/config_files/iot_config.h" version="1.0.0"/>
+        <file attr="config" category="header" name="vendors/st/boards/stm32l475_discovery/aws_demos/config_files/iot_secure_sockets_config.h" version="1.0.0"/>
+        <file attr="config" category="header" name="vendors/st/boards/stm32l475_discovery/aws_demos/config_files/core_pkcs11_config.h" version="1.0.0"/>
+        <file attr="config" category="header" name="vendors/st/boards/stm32l475_discovery/aws_demos/config_files/FreeRTOSIPConfig.h" version="1.0.0"/>
+      </files>
+    </component>
+    <component Cclass="AWS IoT" Cgroup="Features" Csub="Wifi" Cversion="1.0.0" condition="afr_wifi Condition">
+      <description>Wifi</description>
+      <files>
+        <file category="source" name="libraries/abstractions/wifi/include/iot_wifi.h"/>
+        <file category="include" name="libraries/abstractions/wifi/include/"/>
+        <file category="include" name="libraries/c_sdk/standard/common/include/"/>
+        <file attr="config" category="header" name="vendors/st/boards/stm32l475_discovery/aws_demos/config_files/aws_wifi_config.h" version="1.0.0"/>
+      </files>
+    </component>
+    <component Cclass="AWS IoT" Cgroup="Features" Csub="Logging" Cversion="1.0.0" condition="afr_logging Condition">
+      <description>Logging</description>
+      <files>
+        <file category="source" name="libraries/logging/include/iot_logging_task.h"/>
+        <file category="source" name="libraries/logging/include/logging_levels.h"/>
+        <file category="source" name="libraries/logging/include/logging_stack.h"/>
+        <file category="source" name="libraries/logging/iot_logging.c"/>
+        <file category="source" name="libraries/logging/iot_logging_task_dynamic_buffers.c"/>
+        <file category="include" name="libraries/abstractions/platform/freertos/include/"/>
+        <file category="include" name="libraries/abstractions/platform/include/"/>
+        <file category="include" name="libraries/abstractions/platform/include/platform/"/>
+        <file category="include" name="libraries/abstractions/secure_sockets/include/"/>
+        <file category="include" name="libraries/c_sdk/standard/common/include/private/"/>
+        <file category="include" name="libraries/logging/include/"/>
+      </files>
+    </component>
+  </components>
+</package>
+

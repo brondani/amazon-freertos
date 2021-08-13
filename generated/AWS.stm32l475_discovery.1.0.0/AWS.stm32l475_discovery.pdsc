@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<package schemaVersion="1.7.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="PACK.xsd">
+  <name>stm32l475_discovery</name>
+
+  <description>Temporary stm32l475_discovery extension</description>
+
+  <vendor>AWS</vendor>
+
+  <license>LICENSE</license>
+
+  <url>https://github.com/aws/aws-iot-device-sdk-embedded-C/</url>
+
+  <requirements>
+    <packages>
+      <package name="STM32L4xx_DFP" vendor="Keil" version="2.5.0"/>
+      <package name="B-L475E-IOT01A_BSP" vendor="Keil" version="1.0.0"/>
+    </packages>
+  </requirements>
+
+  <releases>
+    <release date="2021-07-12" version="1.0.0">Initial release</release>
+  </releases>
+
+  <conditions/>
+
+  <components>
+    <component Cclass="stm32l475_discovery" Cgroup="bsp_extensions" Cversion="1.0.0">
+      <description>stm32l475_discovery_bsp_extensions</description>
+      <files>
+        <file category="source" name="vendors/st/stm32l475_discovery/BSP/Components/es_wifi/es_wifi.c"/>
+        <file category="source" name="vendors/st/stm32l475_discovery/BSP/Components/vl53l0x/vl53l0x_api.c"/>
+        <file category="source" name="vendors/st/stm32l475_discovery/BSP/Components/vl53l0x/vl53l0x_api_calibration.c"/>
+        <file category="source" name="vendors/st/stm32l475_discovery/BSP/Components/vl53l0x/vl53l0x_api_core.c"/>
+        <file category="source" name="vendors/st/stm32l475_discovery/BSP/Components/vl53l0x/vl53l0x_api_ranging.c"/>
+        <file category="source" name="vendors/st/stm32l475_discovery/BSP/Components/vl53l0x/vl53l0x_api_strings.c"/>
+        <file category="source" name="vendors/st/stm32l475_discovery/BSP/Components/vl53l0x/vl53l0x_platform_log.c"/>
+        <file category="include" name="vendors/st/stm32l475_discovery/BSP/Components/es_wifi/"/>
+        <file category="include" name="vendors/st/stm32l475_discovery/BSP/Components/hts221/"/>
+        <file category="include" name="vendors/st/stm32l475_discovery/BSP/Components/lis3mdl/"/>
+        <file category="include" name="vendors/st/stm32l475_discovery/BSP/Components/lps22hb/"/>
+        <file category="include" name="vendors/st/stm32l475_discovery/BSP/Components/lsm6dsl/"/>
+        <file category="include" name="vendors/st/stm32l475_discovery/BSP/Components/mx25r6435f/"/>
+        <file category="include" name="vendors/st/stm32l475_discovery/BSP/Components/vl53l0x/"/>
+      </files>
+    </component>
+    <component Cclass="stm32l475_discovery" Cgroup="wifi" Cversion="1.0.0">
+      <description>stm32l475_discovery_wifi</description>
+      <files>
+        <file category="source" name="vendors/st/boards/stm32l475_discovery/ports/wifi/iot_wifi.c"/>
+      </files>
+    </component>
+    <component Cclass="stm32l475_discovery" Cgroup="secure_sockets" Cversion="1.0.0">
+      <description>stm32l475_discovery_secure_sockets</description>
+      <files>
+        <file category="source" name="vendors/st/boards/stm32l475_discovery/ports/pkcs11/core_pkcs11_pal.c"/>
+        <file category="source" name="vendors/st/boards/stm32l475_discovery/ports/secure_sockets/iot_secure_sockets.c"/>
+      </files>
+    </component>
+    <component Cclass="stm32l475_discovery" Cgroup="common_io" Cversion="1.0.0">
+      <description>stm32l475_discovery_common_io</description>
+      <files>
+        <file category="source" name="vendors/st/boards/stm32l475_discovery/ports/common_io/iot_i2c.c"/>
+        <file category="source" name="vendors/st/boards/stm32l475_discovery/ports/common_io/iot_spi.c"/>
+        <file category="source" name="vendors/st/boards/stm32l475_discovery/ports/common_io/iot_uart.c"/>
+      </files>
+    </component>
+  </components>
+</package>
+
